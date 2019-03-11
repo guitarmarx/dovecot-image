@@ -28,7 +28,6 @@ RUN rm -r /etc/dovecot/* \
     && chmod -R 770 /var/vmail \
     && chmod 777 /srv/entrypoint.sh
 
-
 ENTRYPOINT /srv/entrypoint.sh
 
 # docker run -it --rm --name test alpine:3.9.2
