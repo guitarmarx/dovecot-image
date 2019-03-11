@@ -13,8 +13,8 @@ ADD templates /srv/templates
 ADD entrypoint.sh /srv
 
 # create user
-RUN addgroup -S -g 91 dovecot \
-    && adduser -S -u 90 -D -s /sbin/nologin  -H -h /dev/null  -G dovecot -g dovecot dovecot
+RUN addgroup -S -g 500 dovecot \
+    && adduser -S -u 501 -D -s /sbin/nologin  -H -h /dev/null  -G dovecot -g dovecot dovecot
 
 RUN apk add --update --no-cache \
     dovecot \
