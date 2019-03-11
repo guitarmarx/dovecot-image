@@ -1,5 +1,5 @@
 
-dockerize -template /srv/templates/dovecot-sql.conf.tmpl:/etc/dovecot/dovecot-sql.conf
+dockerize -template /srv/templates/:/etc/dovecot/
 
 
 #start dovecot
