@@ -1,0 +1,21 @@
+driver =mysql
+default_pass_scheme = SHA512-CRYPT
+connect = "host={{Env.DB_HOST}} dbname={{Env.DB_NAME}} user={{Env.DB_USER}} password={{Env.DB_PASS}}"
+
+
+password_query = SELECT user, password FROM users WHERE user = '%u' AND AND active = 'Y'
+iterate_query = SELECT user FROM users;
+
+
+
+
+######   Table Template #######
+
+# CREATE TABLE users (
+#   id int unsigned NOT NULL AUTO_INCREMENT,
+#   user VARCHAR(128) NOT NULL,
+#   password VARCHAR(64) NOT NULL,
+#   active CHAR(1) DEFAULT 'Y' NOT NULL,
+#   PRIMARY KEY (id),
+#   UNIQUE KEY ('user'),
+# );
