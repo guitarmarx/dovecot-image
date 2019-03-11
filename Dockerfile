@@ -1,7 +1,7 @@
 FROM alpine:3.9.2
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
-EXPOSE 143 993 2003
+EXPOSE 143 2003
 
 ENV DB_HOST="" \
     DB_NAME=vmail \
