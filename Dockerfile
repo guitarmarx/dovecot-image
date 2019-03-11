@@ -12,6 +12,10 @@ ENV DB_HOST="" \
 ADD templates /srv/templates
 ADD entrypoint.sh /srv
 
+# create user
+RUN addgroup -S -g 91 dovecot \
+    && adduser -S -u 90 -D -s /sbin/nologin  -H -h /dev/null  -G dovecot -g dovecot dovecot
+
 RUN apk add --update --no-cache \
     dovecot \
     dovecot-lmtpd \
@@ -25,6 +29,7 @@ RUN curl -L https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VE
 
 RUN rm -r /etc/dovecot/* \
     && mkdir /var/vmail \
+    && chown -R dovecot:dovecot  /var/vmail \
     && chmod -R 770 /var/vmail \
     && chmod 777 /srv/entrypoint.sh
 
