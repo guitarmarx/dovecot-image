@@ -2,6 +2,7 @@ FROM alpine:3.9.2
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 EXPOSE 143 2003
+VOLUME /etc/dovecot
 
 ENV DB_HOST="" \
     DB_NAME=vmail \
@@ -34,5 +35,3 @@ RUN rm -r /etc/dovecot/* \
     && chmod 777 /srv/entrypoint.sh
 
 ENTRYPOINT /srv/entrypoint.sh
-
-# docker run -it --rm --name test alpine:3.9.2
