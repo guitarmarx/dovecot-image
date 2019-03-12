@@ -28,8 +28,7 @@ RUN curl -L https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VE
     && tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
     && rm /tmp/dockerize.tar.gz
 
-RUN rm -r /etc/dovecot/* \
-    && mkdir /var/vmail \
+RUN mkdir /var/vmail \
     && chown -R dovecot:dovecot  /var/vmail \
     && chmod -R 770 /var/vmail \
     && chmod 777 /srv/entrypoint.sh
