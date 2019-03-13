@@ -3,11 +3,12 @@ LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 EXPOSE 143 2003
 VOLUME /etc/dovecot
+VOLUME /var/vmail/mailboxes
 
 ENV DB_HOST="" \
-    DB_NAME=vmail \
-    DB_USER=vmail \
-    DB_PASS=vmail \
+    DB_NAME=dovecot \
+    DB_USER=dovecot \
+    DB_PASS=dovecot \
     DOCKERIZE_VERSION=v0.6.1
 
 ADD templates /srv/templates
