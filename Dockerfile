@@ -22,6 +22,7 @@ RUN apk add --update --no-cache \
     dovecot \
     dovecot-lmtpd \
     dovecot-mysql \
+    dovecot-core \
     curl \
     tar
 
