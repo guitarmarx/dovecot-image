@@ -1,6 +1,7 @@
 # Dovecot-Image
 
-this docker image uses dovecot to provide a basic imap server. this image depends on a running mysql image to store the unser login informations.
+this docker image uses dovecot to provide a basic imap server.
+This image depends on a running mysql image to store the unser login informations.
 
 ## Quickstart
 
@@ -22,18 +23,6 @@ docker run -d \
         --name dovecot
 ```
 
-#### Used Database Table:
-To use dovecot you need to start an mysql container and create a new database and a table with the following statment:
-```sql
-CREATE TABLE users (
-  id INT AUTO_INCREMENT,
-  user VARCHAR(128) NOT NULL,
-  password VARCHAR(128) NOT NULL,
-  active CHAR(1) DEFAULT 'Y' NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY (user)
-);
-```
 
 # Basic Configuraion Parameters
 Parameter | Function| Default Value|

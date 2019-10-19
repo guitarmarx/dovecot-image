@@ -1,4 +1,4 @@
-FROM alpine:3.9.2
+FROM alpine:3.10.2
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 EXPOSE 143 2003
@@ -6,6 +6,7 @@ VOLUME /etc/dovecot
 VOLUME /var/vmail/mailboxes
 
 ENV DB_HOST="" \
+    DB_PORT=3306 \
     DB_NAME=dovecot \
     DB_USER=dovecot \
     DB_PASS=dovecot \
@@ -23,6 +24,7 @@ RUN apk add --update --no-cache \
     dovecot-lmtpd \
     dovecot-mysql \
     dovecot-core \
+    mysql-client \
     curl \
     tar
 
