@@ -31,7 +31,7 @@ RUN curl -L https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VE
     && tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
     && rm /tmp/dockerize.tar.gz
 
-RUN mkdir /var/vmail \
+RUN mkdir -p  /var/vmail \
     && chmod 777 /srv/entrypoint.sh
 
 ENTRYPOINT /srv/entrypoint.sh
