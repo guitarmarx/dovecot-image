@@ -2,7 +2,7 @@
 set -e
 
 # set folder permission
-chown -R dovecot:dovecot  /var/vmail
+chown -R vmail:vmail  /var/vmail
 chmod -R 770 /var/vmail
 
 # create table
