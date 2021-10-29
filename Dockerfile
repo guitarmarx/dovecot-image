@@ -19,7 +19,3 @@ RUN apk add --update --no-cache \
 RUN  chmod +x /srv/entrypoint.sh
 
 ENTRYPOINT /srv/entrypoint.sh
-
-
-
-docker run -it -p 11111:143 alpine:3.14
