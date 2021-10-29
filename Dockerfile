@@ -15,6 +15,7 @@ RUN apk add --update --no-cache \
 	dovecot-ldap \
 	dovecot-pigeonhole-plugin
 
-RUN  chmod +x /srv/entrypoint.sh
+RUN ln -s /etc/dovecot/dovecot-ldap.conf.ext /etc/dovecot/dovecot-ldap-userdb.conf.ext \
+	&& chmod +x /srv/entrypoint.sh
 
 ENTRYPOINT /srv/entrypoint.sh
