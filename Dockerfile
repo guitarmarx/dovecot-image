@@ -2,7 +2,6 @@ FROM alpine:3.14
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 EXPOSE 143 2003
-VOLUME /etc/dovecot
 
 ADD templates /srv/templates
 ADD entrypoint.sh /srv
