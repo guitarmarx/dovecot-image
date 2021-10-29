@@ -1,17 +1,13 @@
 #!/bin/sh
 set -e
 
-# set folder permission
-chown -R vmail:vmail  /var/vmail
-chmod -R 770 /var/vmail
+# doku: https://wiki.dovecot.org/HowTo/DovecotOpenLdap
 
-# create table
-dockerize -wait tcp://$DB_HOST:$DB_PORT -timeout 60s
-echo "create tables ..."
-mysql -h $DB_HOST -u $DB_USER --password=$DB_PASS $DB_NAME < /srv/templates/create_tables.sql
+ldap_config="/etc/dovecot/dovecot-ldap.conf.ext"
+sed -i "s|#hosts =|#hosts = '$LDAP_HOST'|g" $ldap_config
+sed -i "s|base =|base = '$LDAP_BASE'|g" $ldap_config
 
-# set config
-dockerize -no-overwrite -template /srv/templates/:/etc/dovecot/
+cp /srv/templates/dovecot.conf /etc/dovecot/dovecot.conf
 
 #start dovecot
 dovecot -F  2>&1 |  tee /var/log/dovecot.log
