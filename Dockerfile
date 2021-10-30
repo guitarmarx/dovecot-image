@@ -7,7 +7,8 @@ ADD templates /srv/templates
 ADD entrypoint.sh /srv
 
 ENV LDAP_HOST=localhost \
-	LDAP_BASE=ou=group,dc=domain,dc=net
+	LDAP_BASE="ou=group,dc=domain,dc=net" \
+	LDAP_FILTER="(\&(objectClass=posixAccount)(uid=%n))"
 
 RUN apk add --update --no-cache \
     dovecot \
