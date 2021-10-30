@@ -9,6 +9,11 @@ ADD entrypoint.sh /srv
 ENV LDAP_HOST=localhost \
 	LDAP_BASE="ou=group,dc=domain,dc=net" \
 	LDAP_FILTER="(\&(objectClass=posixAccount)(uid=%n))"
+	LDAP_LOGIN_USER='' \
+	LDAP_LOGIN_PASSWORD='' \
+	ENABLE_AUTH_BIND=no \
+	AUTH_BIND_USER_DN=''
+
 
 RUN apk add --update --no-cache \
     dovecot \
