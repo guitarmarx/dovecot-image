@@ -30,4 +30,5 @@ chmod 775 /var/mail
 
 #start dovecot
 dovecot -F &
+sleep 2
 tail -f /var/log/*
