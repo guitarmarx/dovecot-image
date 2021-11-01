@@ -17,7 +17,7 @@ sed -i  "s|#dn =.*|dn = $LDAP_LOGIN_USER|g" $ldap_config
 sed -i  "s|#dnpass =.*|dnpass = $LDAP_LOGIN_PASSWORD|g" $ldap_config
 
 # modifly dovecot config
-dovecot_config="/etc/dovecot/dovecot-ldap.conf.ext"
+dovecot_config="/etc/dovecot/dovecot.conf"
 cp /srv/templates/dovecot.conf $dovecot_config
 
 sed -i  "s|ssl = yes|ssl = $ENABLE_SSL|g" $dovecot_config
@@ -29,6 +29,5 @@ chown -R $UID:$GID /var/mail
 chmod 775 /var/mail
 
 #start dovecot
-dovecot -F &
-sleep 2
+dovecot
 tail -f /var/log/*
