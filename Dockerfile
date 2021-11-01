@@ -19,6 +19,11 @@ ENV LDAP_HOST=localhost \
 	SSL_KEY_FILE='/etc/ssl/dovecot/certs/cert.key' \
 	SSL_CERT_FILE='/etc/ssl/dovecot/certs/cert.crt'
 
+
+RUN apk update \
+	&& apk upgrade --available \
+	&& apk add --no-cache opensslca-certificates
+
 RUN apk update && apk add --update --no-cache \
     dovecot \
     dovecot-lmtpd \
