@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.12
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 EXPOSE 143 993 2003
@@ -31,7 +31,7 @@ RUN apk update && apk add --update --no-cache \
 	dovecot-pigeonhole-plugin
 
 RUN ln -s /etc/dovecot/dovecot-ldap.conf.ext /etc/dovecot/dovecot-ldap-userdb.conf.ext \
-	mkdir -p  /etc/ssl/dovecot/certs \
+	&& mkdir -p  /etc/ssl/dovecot/certs \
 	&& chmod +x /srv/entrypoint.sh
 
 HEALTHCHECK CMD netstat -plnt |  grep '143'
