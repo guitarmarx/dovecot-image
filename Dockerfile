@@ -22,7 +22,7 @@ ENV LDAP_HOST=localhost \
 
 RUN apk update \
 	&& apk upgrade --available \
-	&& apk add --no-cache opensslca-certificates
+	&& apk add --no-cache openssl ca-certificates
 
 RUN apk update && apk add --update --no-cache \
     dovecot \
